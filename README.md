@@ -1,58 +1,62 @@
 # Power Transformer Monitor
 
-This project provides a full-stack monitoring system for power transformers, consisting of a Django backend and React frontend.
+This project provides a full-stack monitoring system for power transformers, consisting of a Django backend and React frontend with TypeScript.
 
-## Docker Setup
+## Features
+
+- Real-time transformer monitoring
+- Multi-language support (English, Arabic, Russian)
+- PDF report generation with proper RTL support
+- Email notifications and reports
+- Interactive data visualization
+- Predictive maintenance using ML models
+- User authentication and authorization
+- Mobile-responsive design
+
+## Setup
 
 ### Prerequisites
 
-- [Docker](https://docs.docker.com/get-docker/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
+- Python 3.12+
+- Node.js 18+
+- Visual Studio Code (recommended)
 
-### Production Setup
+### Backend Setup
 
-To run the application in production mode:
-
-```bash
-docker-compose up -d
+1. Create a virtual environment:
+```powershell
+cd BACK-END
+python -m venv env
+.\env\Scripts\Activate.ps1
 ```
 
-This will:
-- Build and start the backend on http://localhost:8000
-- Build and start the frontend on http://localhost:3000
-
-### Development Setup
-
-For development with hot reloading:
-
-```bash
-docker-compose -f docker-compose.dev.yml up -d
+2. Install dependencies:
+```powershell
+pip install -r requirements.txt
 ```
 
-This will:
-- Start the backend on http://localhost:8000 with hot reloading
-- Start the frontend Vite dev server on http://localhost:5173 with hot reloading
-
-### Stopping the Application
-
-```bash
-# For production
-docker-compose down
-
-# For development
-docker-compose -f docker-compose.dev.yml down
+3. Run migrations:
+```powershell
+cd power_analysis
+python manage.py migrate
 ```
 
-### Rebuilding Containers
+4. Start the development server:
+```powershell
+python manage.py runserver
+```
 
-If you make changes to Dockerfiles or add new dependencies:
+### Frontend Setup
 
-```bash
-# For production
-docker-compose up -d --build
+1. Install dependencies:
+```powershell
+cd FRONT-END/project
+npm install
+```
 
-# For development
-docker-compose -f docker-compose.dev.yml up -d --build
+2. Start the development server:
+```powershell
+npm run dev
 ```
 
 ## Environment Variables
@@ -122,10 +126,31 @@ Note: Keep your .env file secure and never commit it to version control.
 - Frontend (Production): http://localhost:3000
 - Frontend (Development): http://localhost:5173
 
+## Tech Stack
 
+### Backend
+- Django 5.1
+- Django REST Framework 3.16
+- Channels 4.0 for WebSocket support
+- JWT Authentication
+- ML models with NumPy, Pandas, and scikit-learn
 
-To add data from dataset : 
+### Frontend
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- i18next for internationalization
+- React Query
+- Recharts and Plotly.js for data visualization
+- jsPDF for PDF generation
 
-be at project dir:
+## Development
 
-python manage.py import_csv_temp  MOCK_DATA.csv --transformer_name b --username a
+The application runs on:
+- Backend API: http://localhost:8000
+- Frontend Dev Server: http://localhost:5173
+
+## License
+
+This project is proprietary software. All rights reserved.
