@@ -1,0 +1,89 @@
+# =====================
+# General System Files
+# =====================
+.DS_Store
+*.log
+*.lock
+*.swp
+*.swo
+*.swn
+*.sublime-workspace
+*.bak
+*.tmp
+.vscode/
+.idea/
+node_modules/
+dist/
+.env
+.env.local
+.env.production
+*.pyc
+*.pkl
+*.sqlite3
+
+# Environment variables
+.env
+*.env
+.env.*
+!.env.example
+*.csv
+# =====================
+# BACK-END (Django)
+# =====================
+BACK-END/venv/
+BACK-END/__pycache__/
+BACK-END/db.sqlite3
+BACK-END/staticfiles/
+BACK-END/media/
+BACK-END/.mypy_cache/
+BACK-END/.pytest_cache/
+BACK-END/*.pyc
+BACK-END/.coverage
+BACK-END/celerybeat-schedule
+
+# If using PostgreSQL, ignore dump files
+*.dump
+
+# Ignore migrations if auto-generating
+BACK-END/**/migrations/*.py
+BACK-END/**/migrations/*.pyc
+!BACK-END/**/migrations/__init__.py
+
+# Model cache
+.model_cache/
+BACK-END/power_analysis/.model_cache/
+
+# =====================
+# Frontend (React/Vue)
+# =====================
+frontend/node_modules/
+frontend/.next/
+frontend/.nuxt/
+frontend/.cache/
+frontend/build/
+frontend/dist/
+frontend/.eslintcache
+frontend/.parcel-cache/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# =====================
+# Docker & Dependencies
+# =====================
+docker-compose.override.yml
+*.dockerignore
+
+# =====================
+# Logs & Dependencies
+# =====================
+logs/
+*.log
+yarn.lock
+package-lock.json
+pip-log.txt
+FRONT-END/project-bolt-bolt-vite-react-qdt1pyz9.zip
+BACK-END/power_analysis/api/migrations/__init__.py
+env/
+MOCK_DATA.csv

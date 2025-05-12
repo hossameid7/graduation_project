@@ -1,0 +1,920 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+
+// Import translations
+const resources = {
+  en: {
+    translation: {
+      AdminCenter: 'Admin Center',
+      switchToDark: 'Dark Mode',
+      switchToLight: 'Light Mode',
+      lowTemperatureOverheatingDescription: 'oil flow disruption in windings cooling channels, magnetic system causing low efficiency of the cooling system for temperatures < 300 °C.',
+      support: {
+        title: 'Support',
+        message_support: 'Message Support',
+        supportMessages: 'Support Messages',
+        placeholder: 'Type your message here...',
+        clearConversation: 'Clear conversation',
+        selectTransformer: 'Select Transformer',
+        insertLastMeasurement: 'Insert Last Measurement',
+        send: 'Send',
+        aiPlaceholder: 'Type your message here...',
+        sessions: 'Support Sessions',
+        noActiveSessions: 'No active support sessions',
+        noMessagesYet: 'No messages yet',
+        selectConversation: 'Select a conversation to start messaging',
+      },
+      adminInput:"Type your message to the administrator...",
+      welcome: 'Welcome',
+      enterPassword: 'Enter your password',
+      
+      // Navigation & Common UI
+      dashboard: 'Dashboard',
+      newMeasurement: 'New Prediction',
+      history: 'History',
+      profile: 'Profile',
+      logout: 'Logout',
+      save: 'Save',
+      cancel: 'Cancel',
+      delete: 'Delete',
+      edit: 'Edit',
+      loading: 'Loading...',
+      error: 'Error',
+      success: 'Success',
+      
+      // Time Resolution
+      timeResolution: 'Time Resolution',
+      from: 'From',
+      to: 'To',
+      all: 'All',
+      daily: 'Daily',
+      weekly: 'Weekly',
+      monthly: 'Monthly',
+      every6Hours: 'Every 6 hours',
+      every12Hours: 'Every 12 hours',
+      
+      // Home Page
+      welcomeTitle: 'Smart Transformer Monitoring & Prediction',
+      welcomeDescription: 'Advanced analytics and predictive maintenance for your power transformers. Monitor health status, predict failures, and optimize maintenance schedules.',
+      getStarted: 'Get Started',
+      learnMore: 'Learn More',
+      features: 'Key Features',
+      feature1Title: 'Real-time Monitoring',
+      feature1Desc: 'Track gas concentrations and key parameters in real-time with advanced analytics.',
+      feature2Title: 'Predictive Maintenance',
+      feature2Desc: 'AI-powered predictions for transformer health and remaining useful life.',
+      feature3Title: 'Historical Analysis',
+      feature3Desc: 'Comprehensive historical data analysis and trend visualization.',
+      
+      // Auth
+      login: 'Log In',
+      signup: 'Sign Up',
+      username: 'Username',
+      password: 'Password',
+      email: 'Email',
+      usernameOrEmail: 'Username or Email',
+      enterUsernameOrEmail: 'Enter username or email',
+      dontHaveAccount: "Don't have an account?",
+      loggingIn: 'Logging in...',
+      invalidCredentials: 'Invalid credentials',
+      transformerMonitor: 'Transformer Monitor',
+      firstName: 'First Name',
+      lastName: 'Last Name',
+      phone: 'Phone Number',
+      company: 'Company Name',
+      dateOfBirth: 'Date of Birth',
+      
+      // Dashboard
+      totalTransformers: 'Total Transformers',
+      addNewTransformer: 'Add New Transformer',
+      recentMeasurements: 'Recent Measurements',
+      gasConcentrations: 'Gas Concentrations Over Time',
+      transformerDashboard: 'Transformer Dashboard',
+      latestFDDStatus: 'Latest FDD Status',
+      latestRUL: 'Latest RUL',
+      filterByTransformer: 'Filter by Transformer:',
+      selectTransformer: 'Select Transformer:',
+      allTransformers: 'All Transformers',
+      
+      // Table Headers
+      transformerID: 'Transformer ID',
+      timestamp: 'Timestamp',
+      temperature: 'Temperature',
+      
+      // Time Units
+      years: 'years',
+      months: 'months',
+      days: 'days',
+      hours: 'hours',
+      
+      // FDD Status
+      Moderate: 'Moderate',
+      LowEnergyDischarge: 'Low energy discharge',
+      LowtemperatureOverheating: 'Low temperature overheating',
+      normalMode: 'Normal mode',
+      normalModeDesc: 'Normal operating conditions',
+      partialDischarge: 'Partial discharge',
+      partialDischargeDesc: 'Local dielectric breakdown in gas-filled cavities',
+      lowEnergyDischarge: 'Low energy discharge',
+      lowEnergyDischargeDesc: 'sparking or arc discharges in poor contact connections of structural elements with different or floating potential; discharges between PT core structural elements, high voltage winding taps and the tank, high voltage winding and grounding; discharges in oil during contact switching.',
+      lowTempOverheating: 'Low-temperature overheating',
+      lowTempOverheatingDesc: 'oil flow disruption in windings cooling channels, magnetic system causing low efficiency of the cooling system for temperatures < 300 °C.',
+      // Measurements
+      transformerStatus: 'Transformer Status',
+      remainingLife: 'Remaining Useful Life',
+      measurementDetails: 'Measurement Details',
+      fddScore: 'FDD Score',
+
+      // Pages
+      pages: {
+        // Dashboard Page
+        dashboard: {
+          title: 'Transformer Dashboard',
+          addNewTransformer: 'Add New Transformer',
+          createTransformer: 'Create Transformer',
+          creating: 'Creating...',
+          noData: 'No transformer data available. Add your first transformer to get started.',
+          errorLoadingData: 'Error loading data',
+          retry: 'Retry',
+          transformerCreatedSuccess: 'Transformer created successfully',
+          failedToCreateTransformer: 'Failed to create transformer',
+          transformerAlreadyExists: 'A transformer with this name already exists',
+          cards: {
+            totalTransformers: 'Total Transformers',
+            latestFDD: 'Latest FDD Status',
+            latestRUL: 'Latest RUL'
+          },
+          chart: {
+            title: 'Gas Concentrations Over Time',
+            selectTransformer: 'Select Transformer:',
+            allTransformers: 'All Transformers',
+            filterByTransformer: 'Filter by Transformer:'
+          },
+          table: {
+            title: 'Recent Measurements',
+            headers: {
+              transformerId: 'Transformer ID',
+              timestamp: 'Timestamp',
+              h2: 'H2',
+              co: 'CO',
+              c2h4: 'C2H4',
+              c2h2: 'C2H2',
+              fdd: 'FDD',
+              rul: 'RUL',
+              temperature: 'Temperature'
+            }
+          },
+          form: {
+            title: 'Add New Transformer',
+            transformerName: 'Transformer Name',
+            nameExists: 'A transformer with this name already exists',
+            cancel: 'Cancel'
+          }
+        },
+        // New Measurement Page
+        newMeasurement: {
+          title: 'New Prediction',
+          form: {
+            transformer: 'Transformer',
+            h2: 'Hydrogen (H2)',
+            co: 'Carbon Monoxide (CO)',
+            c2h4: 'Ethylene (C2H4)',
+            c2h2: 'Acetylene (C2H2)',
+            temperature: 'Temperature (°C)',
+            temperatureOptional: 'Temperature (°C) (Optional)',
+            submit: 'Start Prediction',
+            cancel: 'Cancel',
+            addAnother: 'Add Another Measurement',
+            goToDashboard: 'Go to Dashboard'
+          },
+          results: {
+            title: 'Prediction Results',
+            transformerStatus: 'Transformer Status',
+            fddScore: 'FDD Score',
+            remainingLife: 'Remaining Useful Life',
+            measurementDetails: 'Measurement Details',
+            timestamp: 'Timestamp',
+            transformer: 'Transformer',
+            temperature: 'Temperature',
+            lowEnergyDischargeDescription: 'Low energy discharge: sparking or arc discharges in poor contact connections of structural elements with different or floating potential; discharges between PT core structural elements, high voltage winding taps and the tank, high voltage winding and grounding; discharges in oil during contact switching.',
+          }
+        },
+       
+        // History Page
+        history: {
+          title: 'Transformer History',
+          searchPlaceholder: 'Search transformers...',
+          noData: 'No measurements available',
+          downloadPDF: 'Download PDF',
+          close: 'Close',
+          latestMeasurement: 'Latest Measurement',
+          fddStatus: 'FDD Status',
+          rul: 'RUL',
+          temperature: 'Temperature',
+          timestamp: 'Timestamp',
+          fddStatusDescription: 'FDD Status Description',
+          gasConcentrations: 'Gas Concentrations & FDD Trend',
+          transformerReport: 'Transformer Report',
+          transformerDataNotFound: 'Transformer data not found',
+          deleteConfirm: 'Are you sure you want to delete this transformer? This action cannot be undone.',
+          deleteSuccess: 'Transformer deleted successfully',
+          deleteError: 'Error deleting transformer',
+          deleteTransformer: 'Delete transformer',
+          sendScreenshot: 'Send screenshot to email',
+          screenshotSent: 'Screenshot sent successfully',
+          screenshotError: 'Error sending screenshot',
+          emailReport: 'Email Report',
+          emailSent: 'Report sent successfully',
+          emailError: 'Error sending report',
+          headers: {
+            timestamp: 'Timestamp',
+            co: 'CO',
+            h2: 'H2',
+            c2h2: 'C2H2',
+            c2h4: 'C2H4',
+            fdd: 'FDD',
+            rul: 'RUL',
+            temp: 'Temp'
+          }
+        },
+        signup: {
+          title: 'Create Account',
+          firstName: 'First Name',
+          lastName: 'Last Name',
+          username: 'Username',
+          email: 'Email',
+          phone: 'Phone Number',
+          company: 'Company Name',
+          dateOfBirth: 'Date of Birth',
+          dateOfBirthOptional: 'Date of Birth (Optional)',
+          password: 'Password',
+          confirmPassword: 'Confirm Password',
+          signUp: 'Sign Up',
+          creatingAccount: 'Creating Account...',
+          alreadyHaveAccount: 'Already have an account?',
+          login: 'Log in',
+          passwordsDontMatch: 'Passwords do not match'
+        },
+        profile: {
+          title: 'Account',
+          firstName: 'First Name',
+          lastName: 'Last Name',
+          email: 'Email',
+          phone: 'Phone Number',
+          company: 'Company Name',
+          dateOfBirth: 'Date of Birth',
+          ChangePassword: 'Change Password',
+          DangerZone: 'Danger Zone',
+          DeleteAccount: 'Delete Account',
+          SaveChanges: 'Save Changes',
+          Cancel: 'Cancel',
+          currentPassword: 'Current Password',
+          newPassword: 'New Password',
+          confirmNewPassword: 'Confirm New Password',
+          deleteAccountConfirmation: 'Yes,Delete my account',
+          deleteAccount: 'Delete Account',
+          editProfile: 'Edit Profile',
+          errors:
+          {
+            passwordsDontMatch:'Password dont match',
+            passwordChanged:'Password changed successfully',
+          }
+          
+          
+        }
+      },
+
+      // Status Messages
+      status: {
+        normal: {
+          label: 'Normal mode',
+          description: 'Normal operating conditions'
+        },
+        warning: {
+          label: 'Warning',
+          description: 'Early signs of degradation detected'
+        },
+        critical: {
+          label: 'Critical',
+          description: 'Immediate attention required'
+        },
+        unknown: {
+          label: 'Unknown',
+          description: 'Status information not available'
+        }
+      },
+    },
+  },
+  ar: {
+    
+    translation: {
+      lowTemperatureOverheatingDescription: 'انقطاع تدفق الزيت في قنوات تبريد اللفائف، مما يؤدي إلى انخفاض كفاءة النظام المغناطيسي وبالتالي ضعف أداء نظام التبريد عند درجات حرارة أقل من 300 درجة مئوية',
+      AdminCenter: 'مركز الادارة',
+      switchToDark: ' وضع الليل',
+      switchToLight: ' وضع النهار',
+      support: {
+        title: 'الدعم',
+        message_support: 'راسل الدعم',
+        supportMessages: 'رسائل الدعم',
+        placeholder: 'اكتب رسالتك هنا...',
+        clearConversation: 'مسح المحادثة',
+        selectTransformer: 'اختر المحول',
+        insertLastMeasurement: 'إدراج آخر قياس',
+        send: 'إرسال',
+        aiPlaceholder: 'اكتب رسالتك هنا...',
+        sessions: 'جلسات الدعم',
+        noActiveSessions: 'لا توجد جلسات دعم نشطة',
+        noMessagesYet: 'لا توجد رسائل حتى الآن',
+        selectConversation: 'اختر محادثة للبدء بالمراسلة',
+      },
+      adminInput:"اكتب رسالتك للادارة...",
+      welcome: 'مرحبا',
+      enterPassword: 'ادخل كلمة المرور',
+      // Navigation & Common UI
+      dashboard: 'لوحة التحكم',
+      newMeasurement: 'قياس جديد',
+      history: 'السجل',
+      profile: 'الملف الشخصي',
+      logout: 'تسجيل الخروج',
+      save: 'حفظ',
+      cancel: 'إلغاء',
+      delete: 'حذف',
+      edit: 'تعديل',
+      loading: 'جاري التحميل...',
+      error: 'خطأ',
+      success: 'نجاح',
+      
+      LowEnergyDischarge: 'تفريغ منخفض الطاقة',
+      LowtemperatureOverheating: 'ارتفاع درجة حرارة منخفضة',
+      // Time Resolution
+      timeResolution: 'دقة الوقت',
+      from: 'من',
+      to: 'إلى',
+      all: 'الكل',
+      daily: 'يومي',
+      weekly: 'أسبوعي',
+      monthly: 'شهري',
+      every6Hours: 'كل 6 ساعات',
+      every12Hours: 'كل 12 ساعة',
+      
+      // Home Page
+      welcomeTitle: 'مراقبة وتنبؤ ذكي للمحولات',
+      welcomeDescription: 'تحليلات متقدمة وصيانة تنبؤية لمحولات الطاقة. مراقبة حالة الصحة، والتنبؤ بالأعطال، وتحسين جداول الصيانة.',
+      getStarted: 'ابدأ الآن',
+      learnMore: 'اعرف المزيد',
+      features: 'المميزات الرئيسية',
+      feature1Title: 'مراقبة في الوقت الحقيقي',
+      feature1Desc: 'تتبع تركيزات الغاز والمعايير الرئيسية في الوقت الحقيقي مع تحليلات متقدمة.',
+      feature2Title: 'الصيانة التنبؤية',
+      feature2Desc: 'تنبؤات مدعومة بالذكاء الاصطناعي لصحة المحول والعمر المتبقي.',
+      feature3Title: 'تحليل تاريخي',
+      feature3Desc: 'تحليل شامل للبيانات التاريخية وتصور الاتجاهات.',
+      
+      // Auth
+      login: 'تسجيل الدخول',
+      signup: 'إنشاء حساب',
+      username: 'اسم المستخدم',
+      password: 'كلمة المرور',
+      email: 'البريد الإلكتروني',
+      usernameOrEmail: 'اسم المستخدم أو البريد الإلكتروني',
+      enterUsernameOrEmail: 'أدخل اسم المستخدم أو البريد الإلكتروني',
+      dontHaveAccount: 'ليس لديك حساب؟',
+      loggingIn: 'جاري تسجيل الدخول...',
+      invalidCredentials: 'بيانات الاعتماد غير صالحة',
+      transformerMonitor: 'مراقبة المحولات',
+      firstName: 'الاسم الأول',
+      lastName: 'اسم العائلة',
+      phone: 'رقم الهاتف',
+      company: 'اسم الشركة',
+      dateOfBirth: 'تاريخ الميلاد',
+      
+      // Dashboard & Measurements
+      totalTransformers: 'إجمالي المحولات',
+      addNewTransformer: 'إضافة محول جديد',
+      recentMeasurements: 'القياسات الأخيرة',
+      gasConcentrations: 'تركيزات الغاز عبر الزمن',
+      transformerDashboard: 'لوحة تحكم المحولات',
+      latestFDDStatus: 'أحدث حالة FDD',
+      latestRUL: 'العمر المتبقي',
+      filterByTransformer: 'تصفية حسب المحول:',
+      selectTransformer: 'اختر المحول:',
+      allTransformers: 'جميع المحولات',
+      
+      // Table Headers
+      transformerID: 'معرف المحول',
+      timestamp: 'التوقيت',
+      temperature: 'درجة الحرارة',
+      
+      // Time Units
+      years: 'سنوات',
+      months: 'أشهر',
+      days: 'أيام',
+      hours: 'ساعات',
+      
+      // FDD Status
+      Moderate: 'متوسط',
+      NormalMode: 'الوضع الطبيعي',
+      normalModeDesc: 'يعمل النظام في ظروف تشغيل مثالية دون وجود مشاكل أو أعطال',
+      partialDischarge: 'تفريغ جزئي',
+      partialDischargeDesc: 'انهيار عازل محلي في التجاويف المملوءة بالغازات، مما يؤدي إلى تفريغ جزئي يعكس تدهور العزل في بعض الأجزاء',
+      lowEnergyDischarge: 'تفريغ منخفض الطاقة',
+      lowEnergyDischargeDesc: 'حدوث شرارات أو تفريغات قوسية في نقاط الاتصال الضعيفة بين العناصر الهيكلية ذات الجهد المختلف أو المتغير',
+      lowTempOverheating: 'ارتفاع درجة حرارة منخفضة',
+      lowTempOverheatingDesc: 'انقطاع تدفق الزيت في قنوات تبريد اللفائف، مما يؤدي إلى انخفاض كفاءة النظام المغناطيسي وبالتالي ضعف أداء نظام التبريد عند درجات حرارة أقل من 300 درجة مئوية',
+      
+      transformerStatus: 'حالة المحول',
+      remainingLife: 'العمر المتبقي',
+      measurementDetails: 'تفاصيل القياس',
+      fddScore: 'درجة FDD',      
+
+      // Pages
+      pages: {
+        // Dashboard Page
+        dashboard: {
+          title: 'لوحة تحكم المحولات',
+          addNewTransformer: 'إضافة محول جديد',
+          createTransformer: 'إنشاء محول',
+          creating: 'جاري الإنشاء...',
+          noData: 'لا توجد بيانات محولات متاحة. أضف أول محول للبدء.',
+          errorLoadingData: 'خطأ في تحميل البيانات',
+          retry: 'إعادة المحاولة',
+          transformerCreatedSuccess: 'تم إنشاء المحول بنجاح',
+          failedToCreateTransformer: 'فشل في إنشاء المحول',
+          transformerAlreadyExists: 'يوجد محول بهذا الاسم بالفعل',
+          cards: {
+            totalTransformers: 'إجمالي المحولات',
+            latestFDD: 'أحدث حالة FDD',
+            latestRUL: 'العمر المتبقي'
+          },
+          chart: {
+            title: 'تركيزات الغاز عبر الزمن',
+            selectTransformer: 'اختر المحول:',
+            allTransformers: 'جميع المحولات',
+            filterByTransformer: 'تصفية حسب المحول:'
+          },
+          table: {
+            title: 'القياسات الأخيرة',
+            headers: {
+              transformerId: 'معرف المحول',
+              timestamp: 'التوقيت',
+              h2: 'H2',
+              co: 'CO',
+              c2h4: 'C2H4',
+              c2h2: 'C2H2',
+              fdd: 'FDD',
+              rul: 'RUL',
+              temperature: 'درجة الحرارة'
+            }
+          },
+          form: {
+            title: 'إضافة محول جديد',
+            transformerName: 'اسم المحول',
+            nameExists: 'يوجد محول بهذا الاسم بالفعل',
+            cancel: 'إلغاء'
+          }
+        },
+        // New Measurement Page
+        newMeasurement: {
+          title: 'قياس جديد',
+          form: {
+            transformer: 'المحول',
+            h2: 'H2 (جزء في المليون)',
+            co: 'CO (جزء في المليون)',
+            c2h4: 'C2H4 (جزء في المليون)',
+            c2h2: 'C2H2 (جزء في المليون)',
+            temperature: 'درجة الحرارة (°C)',
+            temperatureOptional: 'درجة الحرارة (°C) (اختياري)',
+            submit: 'إرسال',
+            cancel: 'إلغاء',
+            addAnother: 'إضافة قياس آخر',
+            goToDashboard: 'الذهاب إلى لوحة التحكم'
+          },
+          results: {
+            title: 'نتائج التنبؤ',
+            transformerStatus: 'حالة المحول',
+            fddScore: 'درجة FDD',
+            remainingLife: 'العمر المتبقي',
+            measurementDetails: 'تفاصيل القياس',
+            timestamp: 'التوقيت',
+            transformer: 'المحول',
+            temperature: 'درجة الحرارة'
+          }
+        },
+        // History Page
+        history: {
+          title: 'سجل المحولات',
+          searchPlaceholder: 'البحث عن المحولات...',
+          noData: 'لا توجد قياسات متاحة',
+          downloadPDF: 'تحميل PDF',
+          close: 'إغلاق',
+          latestMeasurement: 'أحدث قياس',
+          fddStatus: 'حالة FDD',
+          rul: 'العمر المتبقي',
+          temperature: 'درجة الحرارة',
+          timestamp: 'التوقيت',
+          fddStatusDescription: 'وصف حالة FDD',
+          gasConcentrations: 'تركيزات الغاز بمرور الزمن',
+          transformerReport: 'تقرير المحول',
+          transformerDataNotFound: 'لم يتم العثور على بيانات المحول',
+          deleteConfirm: 'هل أنت متأكد من حذف هذا المحول؟ لا يمكن التراجع عن هذا الإجراء.',
+          deleteSuccess: 'تم حذف المحول بنجاح',
+          deleteError: 'خطأ في حذف المحول',
+          deleteTransformer: 'حذف المحول',
+          sendScreenshot: 'إرسال لقطة شاشة إلى البريد الإلكتروني',
+          screenshotSent: 'تم إرسال لقطة الشاشة بنجاح',
+          screenshotError: 'خطأ في إرسال لقطة الشاشة',
+          emailReport: 'إرسال التقرير بالبريد',
+          emailSent: 'تم إرسال التقرير بنجاح',
+          emailError: 'خطأ في إرسال التقرير',
+          headers: {
+            timestamp: 'التوقيت',
+            co: 'CO',
+            h2: 'H2',
+            c2h2: 'C2H2',
+            c2h4: 'C2H4',
+            fdd: 'حالة المحول',
+            rul: 'العمر المتبقي',
+            temp: 'درجة الحرارة'
+          }
+        },
+        signup: {
+          title: 'إنشاء حساب',
+          firstName: 'الاسم الأول',
+          lastName: 'اسم العائلة',
+          username: 'اسم المستخدم',
+          email: 'البريد الإلكتروني',
+          phone: 'رقم الهاتف',
+          company: 'اسم الشركة',
+          dateOfBirth: 'تاريخ الميلاد',
+          dateOfBirthOptional: 'تاريخ الميلاد (اختياري)',
+          password: 'كلمة المرور',
+          confirmPassword: 'تأكيد كلمة المرور',
+          signUp: 'إنشاء حساب',
+          creatingAccount: 'جاري إنشاء الحساب...',
+          alreadyHaveAccount: 'لديك حساب بالفعل؟',
+          login: 'تسجيل الدخول',
+          passwordsDontMatch: 'كلمات المرور غير متطابقة'
+        },
+        profile: {
+          title: 'الحساب',
+          firstName: 'الاسم الأول',
+          lastName: 'اسم العائلة',
+          email: 'البريد الإلكتروني',
+          phone: 'رقم الهاتف',
+          company: 'اسم الشركة',
+          dateOfBirth: 'تاريخ الميلاد',
+          ChangePassword: 'تغيير كلمة المرور',
+          DangerZone: 'المنطقة الخطرة',
+          DeleteAccount: 'حذف الحساب',
+          SaveChanges: 'حفظ التغييرات',
+          Cancel: 'إلغاء',
+          currentPassword: 'كلمة المرور الحالية',
+          newPassword: 'كلمة المرور الجديدة',
+          confirmNewPassword: 'تأكيد كلمة المرور الجديدة',
+          deleteAccountConfirmation: 'نعم , احذف الحساب',
+          deleteAccount: 'حذف الحساب',
+          editProfile: 'تعديل الحساب',
+          errors:
+          {
+            passwordsDontMatch:'كلمات المرور غير متطابقة',
+            passwordChanged:'تم تغيير كلمة المرور بنجاح',
+          }
+          
+        }
+      },
+
+      // Status Messages
+      status: {
+        normal: {
+          label: 'وضع طبيعي',
+          description: 'ظروف التشغيل طبيعية'
+        },
+        warning: {
+          label: 'تحذير',
+          description: 'تم اكتشاف علامات مبكرة للتدهور'
+        },
+        critical: {
+          label: 'حرج',
+          description: 'يتطلب اهتمام فوري'
+        },
+        unknown: {
+          label: 'غير معروف',
+          description: 'معلومات الحالة غير متوفرة'
+        }
+      }
+    },
+  },
+  ru: {
+    translation: {
+      AdminCenter: 'Центр администратора',
+      switchToDark: 'Темный режим',
+      switchToLight: 'Светлый режим',
+      support: {
+        title: 'Поддержка',
+        message_support: 'Свяжитесь с нами',
+        supportMessages: 'Сообщения поддержки',
+        placeholder: 'Введите ваше сообщение здесь...',
+        clearConversation: 'Очистить разговор',
+        selectTransformer: 'Выбрать трансформатор',
+        insertLastMeasurement: 'Вставить последнее измерение',
+        send: 'Отправить',
+        aiPlaceholder: 'Введите ваше сообщение здесь...',
+        sessions: 'Сессии поддержки',
+        noActiveSessions: 'Нет активных сессий поддержки',
+        noMessagesYet: 'Пока нет сообщений',
+        selectConversation: 'Выберите разговор, чтобы начать обмен сообщениями',
+      },
+      adminInput:"Введите ваше сообщение администратору...",
+      welcome: 'Добро пожаловать',
+      // Navigation & Common UI
+      dashboard: 'Панель управления',
+      newMeasurement: 'Новый прогноз',
+      history: 'История',
+      profile: 'Профиль',
+      logout: 'Выйти',
+      save: 'Сохранить',
+      cancel: 'Отмена',
+      delete: 'Удалить',
+      edit: 'Редактировать',
+      loading: 'Загрузка...',
+      error: 'Ошибка',
+      success: 'Успешно',
+      
+      LowEnergyDischarge: 'Разряд низкой энергии',
+      // Time Resolution
+      timeResolution: 'Временное разрешение',
+      from: 'От',
+      to: 'До',
+      all: 'Все',
+      daily: 'Ежедневно',
+      weekly: 'Еженедельно',
+      monthly: 'Ежемесячно',
+      every6Hours: 'Каждые 6 часов',
+      every12Hours: 'Каждые 12 часов',
+      
+      // Home Page
+      welcomeTitle: 'Умный мониторинг и прогнозирование трансформаторов',
+      welcomeDescription: 'Продвинутая аналитика и прогнозное обслуживание силовых трансформаторов. Мониторинг состояния, прогнозирование отказов и оптимизация графиков обслуживания.',
+      getStarted: 'Начать',
+      learnMore: 'Узнать больше',
+      features: 'Ключевые возможности',
+      feature1Title: 'Мониторинг в реальном времени',
+      feature1Desc: 'Отслеживание концентрации газов и ключевых параметров в реальном времени с продвинутой аналитикой.',
+      feature2Title: 'Прогнозное обслуживание',
+      feature2Desc: 'Прогнозы на основе ИИ для оценки состояния трансформатора и оставшегося срока службы.',
+      feature3Title: 'Исторический анализ',
+      feature3Desc: 'Комплексный анализ исторических данных и визуализация трендов.',
+      
+      // Auth
+      login: 'Вход',
+      signup: 'Регистрация',
+      username: 'Имя пользователя',
+      password: 'Пароль',
+      email: 'Электронная почта',
+      usernameOrEmail: 'Имя пользователя или почта',
+      enterUsernameOrEmail: 'Введите имя пользователя или почту',
+      dontHaveAccount: 'Нет учетной записи?',
+      loggingIn: 'Выполняется вход...',
+      invalidCredentials: 'Неверные учетные данные',
+      transformerMonitor: 'Мониторинг трансформаторов',
+      firstName: 'Имя',
+      lastName: 'Фамилия',
+      phone: 'Номер телефона',
+      company: 'Название компании',
+      dateOfBirth: 'Дата рождения',
+      
+      // Dashboard & Measurements
+      totalTransformers: 'Всего трансформаторов',
+      addNewTransformer: 'Добавить трансформатор',
+      recentMeasurements: 'Последние прогнозы',
+      gasConcentrations: 'Концентрации газов во времени',
+      transformerDashboard: 'Панель управления трансформаторами',
+      latestFDDStatus: 'Последний статус FDD',
+      latestRUL: 'Последний RUL',
+      filterByTransformer: 'Фильтр по трансформатору:',
+      selectTransformer: 'Выберите трансформатор:',
+      allTransformers: 'Все трансформаторы',
+      
+      // Table Headers
+      transformerID: 'ID трансформатора',
+      timestamp: 'Время',
+      temperature: 'Температура',
+      
+      enterPassword: 'Введите пароль',
+      // Time Units
+      years: 'лет',
+      months: 'месяцев',
+      days: 'дней',
+      hours: 'часов',
+      
+      // FDD Status
+      Moderate: 'Модернированный',
+      lowTemperatureOverheatingDescription: 'Нарушение потока масла в каналах охлаждения обмоток, магнитная система, что приводит к низкой эффективности системы охлаждения при температурах < 300 °C. ',
+      LowtemperatureOverheating: 'Низкий перегрев температуры',
+      NormalMode: 'Нормальный режим',
+      normalModeDesc: 'Нормальные условия работы системы без отклонений или проблем',
+      partialDischarge: 'Частичный разряд',
+      partialDischargeDesc: 'Местный диэлектрический пробой в полостях, заполненных газом, что приводит к частичному разряду, указывающему на ухудшение изоляции в некоторых частях устройства.',
+      lowEnergyDischarge: 'Разряд низкой энергии',
+      lowEnergyDischargeDesc: 'Искрение или дуговые разряды в местах плохого контакта между элементами конструкции с разным или переменным потенциалом; разряды между элементами сердечника трансформатора, отводами высоковольтной обмотки и корпусом, а также между высоковольтной обмоткой и заземлением; разряды в масле при включении контактов.',
+      lowTempOverheating: 'Низкотемпературный перегрев',
+      lowTempOverheatingDesc: 'Нарушение потока масла в каналах охлаждения обмоток, из-за чего магнитная система вызывает низкую эффективность системы охлаждения при температурах < 300 °C.',
+
+      transformerStatus: 'Статус трансформатора',
+      remainingLife: 'Оставшийся срок службы',
+      measurementDetails: 'Детали измерения',
+      fddScore: 'Оценка FDD',
+
+      // Pages
+      pages: {
+        // Dashboard Page
+        dashboard: {
+          title: 'Панель управления трансформаторами',
+          addNewTransformer: 'Добавить трансформатор',
+          createTransformer: 'Создать трансформатор',
+          creating: 'Создание...',
+          noData: 'Нет доступных данных о трансформаторах. Добавьте первый трансформатор, чтобы начать.',
+          errorLoadingData: 'Ошибка загрузки данных',
+          retry: 'Повторить',
+          transformerCreatedSuccess: 'Трансформатор успешно создан',
+          failedToCreateTransformer: 'Не удалось создать трансформатор',
+          transformerAlreadyExists: 'Трансформатор с таким именем уже существует',
+          cards: {
+            totalTransformers: 'Всего трансформаторов',
+            latestFDD: 'Последний статус FDD',
+            latestRUL: 'Оставшийся ресурс'
+          },
+          chart: {
+            title: 'Концентрации газов во времени',
+            selectTransformer: 'Выберите трансформатор:',
+            allTransformers: 'Все трансформаторы',
+            filterByTransformer: 'Фильтр по трансформатору:'
+          },
+          table: {
+            title: 'Последние измерения',
+            headers: {
+              transformerId: 'ID трансформатора',
+              timestamp: 'Время',
+              h2: 'H2',
+              co: 'CO',
+              c2h4: 'C2H4',
+              c2h2: 'C2H2',
+              fdd: 'Диагностика неисправностей',
+              rul: 'Оставшийся срок службы',
+              temperature: 'Температура'
+            }
+          },
+          form: {
+            title: 'Добавить новый трансформатор',
+            transformerName: 'Название трансформатора',
+            nameExists: 'Трансформатор с таким именем уже существует',
+            cancel: 'Отмена'
+          }
+        },
+        // New Measurement Page
+        newMeasurement: {
+          title: 'Новый прогноз',
+          form: {
+            transformer: 'Трансформатор',
+            h2: 'Водород (H2)',
+            co: 'Монооксид углерода (CO)',
+            c2h4: 'Этилен (C2H4)',
+            c2h2: 'Ацетилен (C2H2)',
+            temperature: 'Температура (°C)',
+            temperatureOptional: 'Температура (°C) (Необязательно)',
+            submit: 'Начать прогноз',
+            cancel: 'Отмена',
+            addAnother: 'Добавить другое измерение',
+            goToDashboard: 'Перейти к панели управления'
+          },
+          results: {
+            title: 'Результаты прогноза',
+            transformerStatus: 'Статус трансформатора',
+            fddScore: 'Оценка FDD',
+            remainingLife: 'Оставшийся срок службы',
+            measurementDetails: 'Детали измерения',
+            timestamp: 'Временная метка',
+            transformer: 'Трансформатор',
+            temperature: 'Температура',
+            lowEnergyDischargeDescription: 'Искровые или дуговые разряды в слабых соединениях конструктивных элементов с различным или плавающим потенциалом; разряды между конструктивными элементами сердечника трансформатора, отводами высоковольтной обмотки и баком, высоковольтной обмоткой и заземлением; разряды в масле при коммутации контактов',
+          }
+        },
+        // History Page
+        history: {
+          title: 'История трансформаторов',
+          searchPlaceholder: 'Поиск трансформаторов...',
+          noData: 'Нет доступных измерений',
+          downloadPDF: 'Скачать PDF',
+          close: 'Закрыть',
+          latestMeasurement: 'Последнее измерение',
+          fddStatus: 'Статус FDD',
+          rul: 'Оставшийся ресурс',
+          temperature: 'Температура',
+          timestamp: 'Временная метка',
+          fddStatusDescription: 'Описание статуса FDD',
+          gasConcentrations: 'Концентрации газов и тренд FDD',
+          transformerReport: 'Отчет по трансформатору',
+          transformerDataNotFound: 'Данные трансформатора не найдены',
+          deleteConfirm: 'Вы уверены, что хотите удалить этот трансформатор? Это действие нельзя отменить.',
+          deleteSuccess: 'Трансформатор успешно удален',
+          deleteError: 'Ошибка при удалении трансформатора',
+          deleteTransformer: 'Удалить трансформатор',
+          sendScreenshot: 'Отправить скриншот на email',
+          screenshotSent: 'Скриншот успешно отправлен',
+          screenshotError: 'Ошибка при отправке скриншота',
+          emailReport: 'Отправить отчет',
+          emailSent: 'Отчет успешно отправлен',
+          emailError: 'Ошибка при отправке отчета',
+          headers: {
+            timestamp: 'Временная метка',
+            co: 'CO',
+            h2: 'H2',
+            c2h2: 'C2H2',
+            c2h4: 'C2H4',
+            fdd: 'FDD',
+            rul: 'Оставшийся ресурс',
+            temp: 'Температура'
+          }
+        },
+        signup: {
+          title: 'Создать аккаунт',
+          firstName: 'Имя',
+          lastName: 'Фамилия',
+          username: 'Имя пользователя',
+          email: 'Электронная почта',
+          phone: 'Номер телефона',
+          company: 'Название компании',
+          dateOfBirth: 'Дата рождения',
+          dateOfBirthOptional: 'Дата рождения (необязательно)',
+          password: 'Пароль',
+          confirmPassword: 'Подтвердите пароль',
+          signUp: 'Зарегистрироваться',
+          creatingAccount: 'Создание аккаунта...',
+          alreadyHaveAccount: 'Уже есть аккаунт?',
+          login: 'Вход',
+          passwordsDontMatch: 'Пароли не совпадают'
+        },
+
+        profile: {
+          title: 'Аккаунт',
+          firstName: 'Имя',
+          lastName: 'Фамилия',
+          email: 'Электронная почта',
+          phone: 'Номер телефона',
+          company: 'Название компании',
+          dateOfBirth: 'Дата рождения',
+          ChangePassword: 'Изменить пароль',
+          DangerZone: 'Опасная зона',
+          DeleteAccount: 'Удалить аккаунт',
+          SaveChanges: 'Сохранить изменения',
+          Cancel: 'Отмена',
+          currentPassword: 'Текущий пароль',
+          newPassword: 'Новый пароль',
+          confirmNewPassword: 'Подтвердите новый пароль',
+          deleteAccountConfirmation: 'Да , удалить аккаунт',
+          deleteAccount: 'Удалить аккаунт',
+          editProfile: 'Редактировать профиль',
+          errors: {
+            passwordsDontMatch: 'Новые пароли не совпадают',
+            passwordChanged: 'Пароль успешно изменен',
+          }
+        }
+      },
+
+      // Status Messages
+      status: {
+        normal: {
+          label: 'Нормальный режим',
+          description: 'Нормальные условия работы'
+        },
+        warning: {
+          label: 'Предупреждение',
+          description: 'Обнаружены ранние признаки деградации'
+        },
+        critical: {
+          label: 'Критический',
+          description: 'Требуется немедленное внимание'
+        },
+        unknown: {
+          label: 'Неизвестно',
+          description: 'Информация о состоянии недоступна'
+        }
+      }
+    },
+  },
+};
+
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources,
+    fallbackLng: 'en',
+    interpolation: {
+      escapeValue: false,
+    },
+    supportedLngs: ['en', 'ar', 'ru'],
+  });
+
+export default i18n;

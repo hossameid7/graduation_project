@@ -1,0 +1,27 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci
+
+# Copy project files
+COPY . .
+
+# Build for production
+RUN npm run build
+
+# Install serve to run the production build
+RUN npm install -g serve
+
+# Expose port
+EXPOSE 3000
+
+# Command to serve the built app
+CMD ["serve", "-s", "dist", "-l", "3000"]
+
+# For development mode, uncomment this and comment out the CMD above
+# CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3000"] 

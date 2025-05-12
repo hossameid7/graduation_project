@@ -1,0 +1,131 @@
+@startuml Power Transformer System Architecture
+
+skinparam {
+  backgroundColor #FFFFFF
+  handwritten false
+  defaultFontName Arial
+  monochrome false
+}
+
+'Define components
+package "Frontend (React + TypeScript)" {
+  [Web UI] as UI
+  [React Router] as Router
+  [State Management\n(Zustand)] as State
+  [i18n] as I18N
+  [API Client\n(Axios)] as APIClient
+  package "Core Features" {
+    [Authentication] as Auth
+    [Dashboard] as Dashboard
+    [Measurement Input] as Input
+    [History View] as History
+    [Profile Management] as Profile
+  }
+}
+
+package "Backend (Django + REST)" {
+  [Django REST API] as API
+  [Authentication Service] as AuthService
+  [ML Model Service] as MLService
+  [User Management] as UserMgmt
+  database "SQLite DB" as DB
+  [Transformer Service] as TransformerService
+}
+
+'Define relationships
+UI --> Router : routes
+Router --> State : manages
+UI --> I18N : uses
+State --> APIClient : uses
+APIClient --> API : HTTP/REST
+
+API --> AuthService : uses
+API --> MLService : uses
+API --> UserMgmt : uses
+API --> TransformerService : uses
+
+AuthService --> DB : reads/writes
+UserMgmt --> DB : reads/writes
+TransformerService --> DB : reads/writes
+MLService --> [CatBoost Models] : uses
+
+cloud "External Services" {
+  [CatBoost Models] as Models
+}
+
+'Add notes
+note right of UI
+  Built with:
+  - React 18
+  - TypeScript
+  - Tailwind CSS
+  - Recharts
+end note
+
+note right of API
+  Built with:
+  - Django REST Framework
+  - JWT Authentication
+  - CatBoost ML Models
+end note
+
+@enduml
+
+@startuml Database ERD
+
+!define primary_key(x) <u>x</u>
+!define foreign_key(x) <i>x</i>
+
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+entity "User" as user {
+    primary_key(id): integer
+    --
+    username: varchar(150)
+    email: varchar(254)
+    password: varchar(128)
+    first_name: varchar(150)
+    last_name: varchar(150)
+    is_active: boolean
+    date_joined: datetime
+}
+
+entity "UserProfile" as profile {
+    primary_key(id): integer
+    --
+    foreign_key(user_id): integer
+    phone: varchar(50)
+    dateOfBirth: date
+    company: varchar(255)
+}
+
+entity "Transformer" as transformer {
+    primary_key(id): integer
+    --
+    foreign_key(user_id): integer
+    name: varchar(255)
+}
+
+entity "TransformerMeasurement" as measurement {
+    primary_key(id): integer
+    --
+    foreign_key(transformer_id): integer
+    co: float
+    h2: float
+    c2h2: float
+    c2h4: float
+    fdd: float
+    rul: float
+    temperature: float
+    timestamp: datetime
+}
+
+user ||--|| profile : has
+user ||--|{ transformer : owns
+transformer ||--|{ measurement : contains
+
+@enduml

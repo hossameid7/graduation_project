@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  :root[dir="rtl"] {
+    --font-sans: 'Noto Sans Arabic', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  * {
+    @apply transition-colors duration-200;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  .dark body {
+    @apply bg-dark text-dark-primary;
+  }
+
+  [dir="rtl"] .recharts-wrapper {
+    direction: ltr;
+  }
+
+  [dir="rtl"] input[type="number"],
+  [dir="rtl"] input[type="tel"] {
+    direction: ltr;
+    text-align: right;
+  }
+}
+
+@layer components {
+  .input-dark {
+    @apply dark:bg-dark-paper dark:border-dark dark:text-dark-primary dark:placeholder-dark-secondary;
+  }
+  
+  .button-dark {
+    @apply dark:bg-dark-card dark:text-dark-primary dark:hover:bg-dark-hover;
+  }
+  
+  .card-dark {
+    @apply dark:bg-dark-card dark:border-dark;
+  }
+
+  .table-dark {
+    @apply dark:bg-dark-card;
+  }
+
+  .table-dark th {
+    @apply dark:bg-dark-paper dark:text-dark-primary dark:border-dark;
+  }
+
+  .table-dark td {
+    @apply dark:text-dark-secondary dark:border-dark;
+  }
+
+  .table-dark tr:hover {
+    @apply dark:bg-dark-hover;
+  }
+
+  .chart-dark {
+    @apply dark:bg-dark-card dark:border-dark;
+  }
+
+  .chart-dark .recharts-cartesian-grid-horizontal line,
+  .chart-dark .recharts-cartesian-grid-vertical line {
+    @apply dark:stroke-dark;
+  }
+
+  .chart-dark .recharts-text {
+    @apply dark:fill-dark-secondary;
+  }
+
+  .chart-dark .recharts-legend-item-text {
+    @apply dark:text-dark-secondary;
+  }
+
+  .status-card-dark {
+    @apply dark:bg-opacity-10 dark:border-opacity-20;
+  }
+
+  .metric-card-dark {
+    @apply dark:bg-dark-card dark:border-dark dark:text-dark-primary;
+  }
+
+  .modal-dark {
+    @apply dark:bg-dark-paper dark:border-dark;
+  }
+
+  .modal-dark-overlay {
+    @apply dark:bg-black dark:bg-opacity-75;
+  }
+
+  .form-input-dark {
+    @apply dark:bg-dark-paper dark:border-dark dark:text-dark-primary dark:placeholder-dark-secondary;
+  }
+
+  .form-label-dark {
+    @apply dark:text-dark-secondary;
+  }
+
+  .btn-primary-dark {
+    @apply dark:bg-blue-600 dark:hover:bg-blue-700 dark:text-dark-primary;
+  }
+
+  .btn-secondary-dark {
+    @apply dark:bg-dark-card dark:hover:bg-dark-hover dark:text-dark-secondary;
+  }
+
+  .btn-danger-dark {
+    @apply dark:bg-red-600 dark:hover:bg-red-700 dark:text-dark-primary;
+  }
+
+  .alert-dark {
+    @apply dark:bg-dark-card dark:border-dark dark:text-dark-primary;
+  }
+
+  .alert-success-dark {
+    @apply dark:bg-green-900/20 dark:border-green-800 dark:text-green-200;
+  }
+
+  .alert-error-dark {
+    @apply dark:bg-red-900/20 dark:border-red-800 dark:text-red-200;
+  }
+
+  .alert-warning-dark {
+    @apply dark:bg-yellow-900/20 dark:border-yellow-800 dark:text-yellow-200;
+  }
+
+  .select-dark {
+    @apply dark:bg-dark-paper dark:border-dark dark:text-dark-primary;
+  }
+
+  .select-dark option {
+    @apply dark:bg-dark-paper dark:text-dark-primary;
+  }
+
+  .tooltip-dark {
+    @apply dark:bg-dark-card dark:text-dark-primary dark:border-dark;
+  }
+}
